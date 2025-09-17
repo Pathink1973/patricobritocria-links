@@ -207,10 +207,17 @@ const cardClasses = [
 		.image-card {
 			height: auto;
 			min-height: 180px;
+			background: transparent;
+		}
+		
+		.image-card .card-gradient {
+			display: block !important;
+			opacity: 1 !important;
 		}
 		
 		.card-overlay {
 			padding: 1rem;
+			background: linear-gradient(transparent 0%, rgba(230, 231, 238, 0.7) 40%, rgba(230, 231, 238, 0.9) 100%);
 		}
 		
 		.text-card {
