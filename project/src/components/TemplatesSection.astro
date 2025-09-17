@@ -1,0 +1,146 @@
+---
+import { ExternalLink } from 'lucide-astro';
+// Templates section with simple text and copy buttons
+---
+
+<section id="templates" class="content-section section">
+	<h2 class="section-title">
+		<ExternalLink size={20} class="section-icon" />
+		Projetos
+	</h2>
+	
+	<div class="template-list">
+		<div class="template-item">
+			<span class="template-name">Podcast . FeedVox</span>
+			<ExternalLink class="arrow-icon" size={16} />
+		</div>
+		
+		<div class="template-item">
+			<span class="template-name">Instagram . FeedVox Noticias</span>
+			<ExternalLink class="arrow-icon" size={16} />
+		</div>
+		
+		<div class="template-item">
+			<span class="template-name">Portfólio . Aplicações SaaS</span>
+			<ExternalLink class="arrow-icon" size={16} />
+		</div>
+		
+		<div class="template-item">
+			<span class="template-name">Portfólio Criativo</span>
+			<ExternalLink class="arrow-icon" size={16} />
+		</div>
+	</div>
+</section>
+
+<style scoped>
+	.content-section {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 2rem 0;
+		color: var(--text);
+		letter-spacing: -0.02em;
+	}
+
+	.section-icon {
+		color: var(--accent-primary);
+	}
+	.template-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.template-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.25rem 1.5rem;
+		background: var(--card-bg);
+		border: none;
+		border-radius: 1.5rem;
+		transition: all var(--transition-fast);
+		cursor: pointer;
+		box-shadow: var(--shadow-raised);
+	}
+
+	.template-item:hover {
+		background: var(--card-bg);
+		box-shadow: var(--shadow-pressed);
+		transform: translateY(1px);
+	}
+
+	.template-name {
+		font-size: 1.1rem;
+		font-weight: 400;
+		color: var(--text);
+		flex: 1;
+	}
+
+	.arrow-icon {
+		color: var(--text-muted);
+		transition: all var(--transition-fast);
+		flex-shrink: 0;
+	}
+
+	.template-item:hover .arrow-icon {
+		color: var(--text-secondary);
+		transform: translate(1px, -1px);
+	}
+
+	@media (max-width: 768px) {
+		.content-section {
+			margin-bottom: 3rem;
+		}
+		
+		.section-title {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+		}
+
+		.section-icon {
+			width: 18px;
+			height: 18px;
+		}
+		.template-item {
+			padding: 1rem 1.25rem;
+		}
+
+		.template-name {
+			font-size: 1rem;
+		}
+
+	}
+</style>
+
+<script>
+	// Add click functionality to template items
+	document.addEventListener('DOMContentLoaded', () => {
+		const templateItems = document.querySelectorAll('.template-item');
+		
+		templateItems.forEach(item => {
+			item.addEventListener('click', () => {
+				const templateName = item.querySelector('.template-name').textContent;
+				
+				// Redirect based on template name
+				if (templateName === 'Podcast . FeedVox') {
+					window.open('https://open.spotify.com/show/1GIlmBk57nbrwSr4pTOPsL?si=24f80823edde4480', '_blank');
+				} else if (templateName === 'Instagram . FeedVox Noticias') {
+					window.open('https://www.instagram.com/feedvox_noticias', '_blank');
+				} else if (templateName === 'Portfólio . Aplicações SaaS') {
+					window.open('https://patriciobrito.netlify.app/', '_blank');
+				} else if (templateName === 'Portfólio Criativo') {
+					window.open('https://patriciobrito.pt/', '_blank');
+				} else {
+					console.log('A abrir modelo:', templateName);
+				}
+			});
+		});
+	});
+</script>

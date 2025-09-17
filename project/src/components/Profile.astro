@@ -1,0 +1,135 @@
+---
+// Profile component
+import { Twitter, Instagram, Linkedin, Github, Youtube } from 'lucide-astro';
+---
+
+<section class="profile section">
+	<div class="profile-content">
+		<div class="avatar-container">
+			<img 
+				src="/patriciobrito.webp" 
+				alt="Profile Avatar"
+				class="avatar"
+				width="120"
+				height="120"
+			/>
+		</div>
+		
+		<h1 class="profile-name">
+			Patrício Brito
+		</h1>
+		
+		<p class="profile-bio">
+			Designer UIX . Vibe Coding . Automações AI
+		</p>
+		
+		<div class="social-links">
+			<a href="https://x.com/patriciobrito73" target="_blank" rel="noopener noreferrer" class="social-link">
+				<Twitter size={18} />
+			</a>
+			<a href="https://instagram.com/patriciobrito.cria" target="_blank" rel="noopener noreferrer" class="social-link">
+				<Instagram size={18} />
+			</a>
+			<a href="https://www.linkedin.com/in/patriciobritocria/" target="_blank" rel="noopener noreferrer" class="social-link">
+				<Linkedin size={18} />
+			</a>
+			<a href="https://github.com/Pathink1973/" target="_blank" rel="noopener noreferrer" class="social-link">
+				<Github size={18} />
+			</a>
+			<a href="https://youtube.com/@patriciobrito-cria" target="_blank" rel="noopener noreferrer" class="social-link">
+				<Youtube size={18} />
+			</a>
+		</div>
+	</div>
+</section>
+
+<style scoped>
+	.profile {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.profile-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.avatar-container {
+		position: relative;
+	}
+
+	.avatar {
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: none;
+		box-shadow: var(--shadow-raised);
+		transition: all var(--transition-medium);
+	}
+
+	.avatar:hover {
+		box-shadow: var(--shadow-soft);
+		transform: scale(1.02);
+	}
+
+	.profile-name {
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 0;
+		color: var(--text);
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+	}
+
+	.profile-bio {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 0.5rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		background: var(--card-bg);
+		border: none;
+		border-radius: 50%;
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.875rem;
+		font-weight: 500;
+		transition: all var(--transition-fast);
+		box-shadow: var(--shadow-subtle);
+	}
+
+	.social-link:hover {
+		background: var(--card-bg);
+		box-shadow: var(--shadow-pressed);
+		transform: scale(0.98);
+		color: var(--text);
+	}
+
+	@media (max-width: 768px) {
+		.profile-name {
+			font-size: 1.75rem;
+		}
+		
+		.avatar {
+			width: 100px;
+			height: 100px;
+		}
+	}
+</style>
