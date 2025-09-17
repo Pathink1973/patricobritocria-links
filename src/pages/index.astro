@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Profile from '../components/Profile.astro';
+import LinksSection from '../components/LinksSection.astro';
+import PromptsSection from '../components/PromptsSection.astro';
+import TemplatesSection from '../components/TemplatesSection.astro';
+---
+
+<Layout title="Patrício Brito CrIA">
+	<main class="container">
+		<Profile />
+		<LinksSection />
+		<TemplatesSection />
+		<PromptsSection />
+	</main>
+	
+	<footer class="footer">
+		<p>2025 © Patricio Brito crIA. Todos os direitos reservados.</p>
+	</footer>
+</Layout>
+
+<style>
+	main {
+		position: relative;
+		z-index: 1;
+	}
+	
+	.footer {
+		text-align: center;
+		padding: 2rem 1rem;
+		margin-top: 3rem;
+		color: var(--text-muted);
+		font-size: 0.875rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.footer p {
+		margin: 0;
+		text-align: center;
+	}
+	
+	@media (max-width: 768px) {
+		.footer {
+			padding: 1.5rem 1rem;
+			margin-top: 2rem;
+		}
+	}
+	

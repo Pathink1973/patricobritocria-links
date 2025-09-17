@@ -1,0 +1,262 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content="Hub de presença digital premium com ligações curadas e trabalhos criativos." />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content="Hub de presença digital premium com ligações curadas e trabalhos criativos." />
+		<meta property="og:url" content="https://yoursite.com" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content="Hub de presença digital premium com ligações curadas e trabalhos criativos." />
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="animated-bg">
+			<div class="bg-gradient"></div>
+			<div class="bg-gradient"></div>
+			<div class="bg-gradient"></div>
+			<div class="bg-gradient"></div>
+		</div>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		/* Colors */
+		--background: #e6e7ee;
+		--text: #4a4a4a;
+		--text-secondary: #6a6a6a;
+		--text-muted: #8a8a8a;
+		
+		/* Neumorphism variables */
+		--card-bg: #e6e7ee;
+		--card-bg-hover: #e6e7ee;
+		--card-border: transparent;
+		--card-border-hover: transparent;
+		
+		/* Neumorphism shadows */
+		--shadow-light: #ffffff;
+		--shadow-dark: #a3b1c6;
+		--shadow-inset-light: inset 2px 2px 5px #a3b1c6;
+		--shadow-inset-dark: inset -2px -2px 5px #ffffff;
+		--shadow-raised: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+		--shadow-pressed: inset 9px 9px 16px #a3b1c6, inset -9px -9px 16px #ffffff;
+		--shadow-soft: 6px 6px 12px #a3b1c6, -6px -6px 12px #ffffff;
+		--shadow-subtle: 3px 3px 6px #a3b1c6, -3px -3px 6px #ffffff;
+		
+		/* Gradients */
+		--gradient-primary: linear-gradient(145deg, #f0f0f3, #cacbce);
+		--gradient-overlay: linear-gradient(145deg, rgba(230, 231, 238, 0.8) 0%, rgba(230, 231, 238, 0.95) 100%);
+		--gradient-overlay-hover: linear-gradient(145deg, rgba(230, 231, 238, 0.9) 0%, rgba(230, 231, 238, 1) 100%);
+		
+		/* Accent colors */
+		--accent-primary: #667eea;
+		--accent-glow: rgba(102, 126, 234, 0.2);
+		
+		/* Spacing */
+		--container-padding: 3rem 1rem;
+		--section-gap: 2rem;
+		--card-gap: 2rem;
+		
+		/* Animation */
+		--ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+		--transition-fast: 0.2s var(--ease-premium);
+		--transition-medium: 0.3s var(--ease-premium);
+		--transition-slow: 0.5s var(--ease-premium);
+	}
+
+	@media (max-width: 768px) {
+		:root {
+			--container-padding: 2rem 1rem;
+			--section-gap: 1.5rem;
+			--card-gap: 1.5rem;
+		}
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: var(--background);
+		color: var(--text);
+		line-height: 1.6;
+		min-height: 100vh;
+		position: relative;
+		overflow-x: hidden;
+	}
+
+	/* Focus styles */
+	*:focus-visible {
+		outline: 2px solid var(--accent-primary);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+
+	/* Animated background */
+	.animated-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		overflow: hidden;
+		background: linear-gradient(135deg, #e6e7ee 0%, #f0f0f3 25%, #e6e7ee 50%, #d1d9e6 75%, #e6e7ee 100%);
+	}
+
+	.bg-gradient {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(80px);
+		opacity: 0.08;
+		animation: float 20s ease-in-out infinite;
+	}
+
+	.bg-gradient:nth-child(1) {
+		width: 400px;
+		height: 400px;
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+		top: 10%;
+		left: 10%;
+		animation-delay: 0s;
+	}
+
+	.bg-gradient:nth-child(2) {
+		width: 500px;
+		height: 500px;
+		background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #a8edea 100%);
+		top: 50%;
+		right: 10%;
+		animation-delay: -7s;
+	}
+
+	.bg-gradient:nth-child(3) {
+		width: 350px;
+		height: 350px;
+		background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffecd2 100%);
+		bottom: 20%;
+		left: 20%;
+		animation-delay: -14s;
+	}
+
+	.bg-gradient:nth-child(4) {
+		width: 300px;
+		height: 300px;
+		background: linear-gradient(135deg, #d299c2 0%, #fef9d7 50%, #d299c2 100%);
+		top: 30%;
+		left: 50%;
+		animation-delay: -21s;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translate(0, 0) scale(1);
+		}
+		33% {
+			transform: translate(20px, -20px) scale(1.1);
+		}
+		66% {
+			transform: translate(-15px, 15px) scale(0.9);
+		}
+	}
+
+	/* Utility classes */
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: var(--container-padding);
+	}
+
+	.grid {
+		display: grid;
+		gap: var(--card-gap);
+	}
+
+	.grid-cols-1 {
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 768px) {
+		.grid-cols-2 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		
+		.grid-cols-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		
+		.wide {
+			grid-column: span 2;
+		}
+		
+		.tall {
+			grid-row: span 2;
+		}
+	}
+
+	/* Safari/iOS detection */
+	.safari-ios .image-card-content {
+		padding-bottom: 52.36%; /* 1/1.91 * 100% */
+		height: 0;
+		position: relative;
+	}
+
+	.safari-ios .image-card-content img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	/* Section fade-in animation */
+</style>
+
+<script>
+	// Detect Safari/iOS for aspect ratio handling
+	function detectSafariIOS() {
+		const userAgent = navigator.userAgent;
+		const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
+		const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+		
+		if (isSafari || isIOS) {
+			document.documentElement.classList.add('safari-ios');
+		}
+	}
+
+	// Initialize on load
+	detectSafariIOS();
+</script>

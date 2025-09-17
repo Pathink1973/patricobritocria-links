@@ -1,0 +1,92 @@
+---
+import { Heart } from 'lucide-astro';
+import LinkCard from './LinkCard.astro';
+
+---
+
+<section id="prompts" class="content-section section">
+	<h2 class="section-title">
+		<Heart size={20} class="section-icon" />
+		Ferramentas Favoritas
+	</h2>
+	
+	<div class="grid grid-cols-3">
+		<LinkCard
+			title="ChatGPT"
+			description="Assistente de IA para conversação e resolução de problemas"
+			url="https://chat.openai.com"
+			gradient="linear-gradient(135deg, #10a37f 0%, #1a7f64 100%)"
+		/>
+		
+		<LinkCard
+			title="Bolt"
+			description="Desenvolvimento web full-stack com IA no navegador"
+			url="https://bolt.new"
+			gradient="linear-gradient(135deg, #005EFD 0%, #338FFF 100%)"
+		/>
+		
+		<LinkCard
+			title="Supabase"
+			description="Plataforma de backend como serviço com base de dados PostgreSQL"
+			url="https://supabase.com"
+			gradient="linear-gradient(135deg, #3ecf8e 0%, #2dd4bf 100%)"
+		/>
+		
+		<LinkCard
+			title="Notion"
+			description="Gestão de projetos e organização de briefings criativos"
+			url="https://notion.so"
+			gradient="linear-gradient(135deg, #000000 0%, #434343 100%)"
+		/>
+		
+		<LinkCard
+			title="Make"
+			description="Automação de fluxos de trabalho e integração de aplicações"
+			url="https://make.com"
+			gradient="linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)"
+		/>
+		
+		<LinkCard
+			title="n8n"
+			description="Plataforma de automação de código aberto para workflows"
+			url="https://n8n.io"
+			gradient="linear-gradient(135deg, #ea384c 0%, #ff6b6b 100%)"
+		/>
+	</div>
+</section>
+
+<style scoped>
+	.content-section {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 2rem 0;
+		color: var(--text);
+		letter-spacing: -0.02em;
+	}
+
+	.section-icon {
+		color: var(--accent-primary);
+	}
+	@media (max-width: 768px) {
+		.content-section {
+			margin-bottom: 3rem;
+		}
+		
+		.section-title {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+		}
+		
+		.section-icon {
+			width: 18px;
+			height: 18px;
+		}
+	}
+</style>
